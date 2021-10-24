@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'grocery_item_screen.dart';
 import 'empty_grocery_screen.dart';
 import '../models/models.dart';
 
@@ -15,6 +16,21 @@ class GroceryScreen extends StatelessWidget {
           child: const Icon(Icons.add),
           onPressed: () {
             // TODO 11: Present GroceryItemScreen
+            final manager = Provider.of<GroceryManager>(context, listen: false);
+            print('watch manager:${manager}');
+            Navigator.push(
+                context,
+                // 用特定于平台的过渡替换整个屏幕。例如，在 Android 中，它向上滑动并淡入。在 iOS 中，它从右侧滑入
+                MaterialPageRoute(
+                    builder: (context) => GroceryItemScreen(
+                          onCreate: (item) {
+                            // 推到manager
+                            manager.addItem(item);
+                            // 移除导航堆栈
+                            Navigator.pop(context);
+                          },
+                          onUpdate: (item) {},
+                        )));
           },
         ),
         body: buildGroceryScreen());
