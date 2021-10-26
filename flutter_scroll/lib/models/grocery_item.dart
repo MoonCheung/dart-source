@@ -12,7 +12,7 @@ class GroceryItem {
   final DateTime date;
   final bool isComplete;
 
-  // 实例化class里面部分必传参数, 默认参数
+  // 实例化class里面部分必传参数, 其中一个默认参数
   GroceryItem(
       {required this.id,
       required this.name,

@@ -3,12 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart'; //为您的应用提供材质颜色选择器
 import 'package:intl/intl.dart'; // 提供国际化和本地化实用程序。您将使用它来格式化日期
 import 'package:uuid/uuid.dart'; // 为每个杂货项目生成唯一的密钥。这有助于您了解要添加、更新或删除的项目
+import '../components/grocery_tile.dart';
 import '../models/models.dart';
 
 class GroceryItemScreen extends StatefulWidget {
-  // 一个回调，创建项目
+  // 一个回调函数，创建项目
   final Function(GroceryItem) onCreate;
-  // 一个回调，返回更新杂货项目
+  // 一个回调函数，返回更新杂货项目
   final Function(GroceryItem) onUpdate;
   // 3
   final GroceryItem? originalItem;
@@ -81,9 +82,33 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
     return Scaffold(
       appBar: AppBar(
           actions: [
+            // 添加打勾图标
             IconButton(
                 onPressed: () {
                   // TODO 24: Add callback handler
+                  print('点击打勾触发:${widget}');
+                  final groceryItem = GroceryItem(
+                      id: widget.originalItem?.id ?? const Uuid().v1(),
+                      name: _nameController.text,
+                      importance: _importance,
+                      color: _currentColor,
+                      quantity: _currentSliderValue,
+                      date: DateTime(
+                        _dueDate.year,
+                        _dueDate.month,
+                        _dueDate.day,
+                        _timeOfDay.hour,
+                        _timeOfDay.minute,
+                      ));
+
+                  // 使用widget 这个类本身的属性
+                  if (widget.isUpdating) {
+                    // 如果用户正在更新现有项目。
+                    widget.onUpdate(groceryItem);
+                  } else {
+                    // 如果用户正在创建新项目
+                    widget.onCreate(groceryItem);
+                  }
                 },
                 icon: const Icon(Icons.check)),
           ],
@@ -103,8 +128,23 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             buildColorPicker(context),
             // TODO 18: Add slider
             const SizedBox(height: 10.0),
-            buildQuantityField(context)
+            buildQuantityField(context),
             // TODO: 19: Add Grocery Tile
+            GroceryTile(
+                item: GroceryItem(
+                    id: 'previewMode',
+                    name: _name,
+                    importance: _importance,
+                    color: _currentColor,
+                    quantity: _currentSliderValue,
+                    // 年月日份、小时分钟
+                    date: DateTime(
+                      _dueDate.year,
+                      _dueDate.month,
+                      _dueDate.day,
+                      _timeOfDay.hour,
+                      _timeOfDay.minute,
+                    )))
           ])),
     );
   }
