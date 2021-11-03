@@ -15,6 +15,24 @@ class GroceryItemScreen extends StatefulWidget {
   final bool isUpdating;
 
   // TODO: GroceryItemScreen MaterialPage Helper
+  static MaterialPage page(
+      {GroceryItem? item,
+      int index = -1,
+      required Function(GroceryItem) onCreate,
+      required Function(GroceryItem, int) onUpdate}) {
+    return MaterialPage(
+        name: FooderlichPages.groceryItemDetails,
+        key: ValueKey(FooderlichPages.groceryItemDetails),
+        child: GroceryItemScreen(
+            // 当用户完成创建新项目时
+            onCreate: onCreate,
+            // 当用户完成更新项目时
+            onUpdate: onUpdate,
+            // 所选杂货项目的索引
+            index: index,
+            // 原始杂货（如果有）。否则，它假定用户正在创建一个新的杂货项目
+            originalItem: item));
+  }
 
   const GroceryItemScreen({
     Key? key,

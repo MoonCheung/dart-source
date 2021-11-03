@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../models/models.dart';
 
 class SplashScreen extends StatefulWidget {
   // TODO: SplashScreen MaterialPage Helper
+  // 定义了一个静态方法来创建MaterialPage，该方法设置适当的唯一标识符并创建SplashScreen。
+  static MaterialPage page() {
+    return MaterialPage(
+      name: FooderlichPages.splashPath,
+      key: ValueKey(FooderlichPages.splashPath),
+      child: const SplashScreen(),
+    );
+  }
 
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -14,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     // TODO: Initialize App
+    Provider.of<AppStateManager>(context, listen: false).initializeApp();
   }
 
   @override

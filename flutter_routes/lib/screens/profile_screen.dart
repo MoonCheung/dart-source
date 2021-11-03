@@ -6,6 +6,12 @@ import '../models/models.dart';
 
 class ProfileScreen extends StatefulWidget {
   // TODO: ProfileScreen MaterialPage Helper
+  static MaterialPage page(User user) {
+    return MaterialPage(
+        name: FooderlichPages.profilePath,
+        key: ValueKey(FooderlichPages.profilePath),
+        child: ProfileScreen(user: user));
+  }
 
   final User user;
   const ProfileScreen({
@@ -26,6 +32,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           icon: const Icon(Icons.close),
           onPressed: () {
             // TODO: Close Profile Screen
+            // 这将处理用户点击X（关闭）按钮时发生的操作。它更新配置文件状态，以便导航器删除配置文件屏幕
+            Provider.of<ProfileManager>(context, listen: false)
+                .tapOnProfile(false);
           },
         ),
       ),
@@ -52,12 +61,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
           title: const Text('View raywenderlich.com'),
           onTap: () {
             // TODO: Open raywenderlich.com webview
+            Provider.of<ProfileManager>(context, listen: false)
+                .tapOnRaywenderlich(true);
           },
         ),
         ListTile(
           title: const Text('Log out'),
           onTap: () {
             // TODO: Logout user
+            // 1
+            Provider.of<ProfileManager>(context, listen: false)
+                .tapOnProfile(false);
+            // 2
+            Provider.of<AppStateManager>(context, listen: false).logout();
           },
         )
       ],
