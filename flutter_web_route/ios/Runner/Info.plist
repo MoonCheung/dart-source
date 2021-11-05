@@ -9,6 +9,7 @@
 		<dict>
 		<key>CFBundleTypeRole</key>
 		<string>Editor</string>
+    <!-- CFBundleURLName是一个唯一的 URL，它将您的应用程序与使用相同方案的其他应用程序区分开来。fooderlich是您稍后将使用的 URL 方案的名称。 -->
 		<key>CFBundleURLName</key>
 		<string>raywenderlich.com</string>
 		<key>CFBundleURLSchemes</key>

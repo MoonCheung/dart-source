@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'app_link.dart';
 import '../models/models.dart';
 import '../screens/screens.dart';
 
-class AppRouter extends RouterDelegate //TODO: Add <AppLink>
+class AppRouter extends RouterDelegate<AppLink> //TODO: Add <AppLink>
     with
         ChangeNotifier,
         PopNavigatorRouterDelegateMixin {
@@ -95,10 +97,58 @@ class AppRouter extends RouterDelegate //TODO: Add <AppLink>
   }
 
   // TODO: Convert app state to applink
+  AppLink getCurrentPath() {
+    // 如果用户尚未登录，则返回带有登录路径的应用链接。
+    if (!appStateManager.isLoggedIn) {
+      return AppLink(location: AppLink.kLoginPath);
+      // 如果用户尚未完成入职，请返回包含入职路径的应用链接
+    } else if (!appStateManager.isOnboardingComplete) {
+      return AppLink(location: AppLink.kOnboardingPath);
+      // 如果用户点击个人资料，则返回带有个人资料路径的应用程序链接
+    } else if (profileManager.didSelectUser) {
+      return AppLink(location: AppLink.kProfilePath);
+      // 如果用户点击+按钮创建一个新的杂货项目，返回带有项目路径的应用程序链接
+    } else if (groceryManager.isCreatingNewItem) {
+      return AppLink(location: AppLink.kItemPath);
+      // 如果用户选择了现有项目，则返回包含项目路径和项目的id
+    } else if (groceryManager.selectedGroceryItem != null) {
+      final id = groceryManager.selectedGroceryItem?.id;
+      return AppLink(location: AppLink.kItemPath, itemId: id);
+      // 如果不满足任何条件，则默认返回带有所选选项卡的主路径
+    } else {
+      return AppLink(
+          location: AppLink.kHomePath,
+          currentTab: appStateManager.getSelectedTab);
+    }
+  }
 
   // TODO: Apply configuration helper
+  @override
+  AppLink get currentConfiguration => getCurrentPath();
 
   // TODO: Replace setNewRoutePath
   @override
-  Future<void> setNewRoutePath(configuration) async => null;
+  Future<void> setNewRoutePath(AppLink newLink) async {
+    switch (newLink.location) {
+      case AppLink.kProfilePath:
+        profileManager.tapOnProfile(true);
+        break;
+      case AppLink.kItemPath:
+        final itemId = newLink.itemId;
+        if (itemId != null) {
+          groceryManager.setSelectedGroceryItem(itemId);
+        } else {
+          groceryManager.createNewItem();
+        }
+        profileManager.tapOnProfile(false);
+        break;
+      case AppLink.kHomePath:
+        appStateManager.goToTab(newLink.currentTab ?? 0);
+        profileManager.tapOnProfile(false);
+        groceryManager.groceryItemTapped(-1);
+        break;
+      default:
+        break;
+    }
+  }
 }
