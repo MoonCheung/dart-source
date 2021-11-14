@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'data/memory_repository.dart';
 
 import 'ui/main_screen.dart';
+import 'mock_service/mock_service.dart';
 
 Future<void> main() async {
   _setupLogging();
@@ -25,12 +26,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // 使用ChangeNotifierProvider类型为 的MemoryRepository
-    return ChangeNotifierProvider<MemoryRepository>(
-      // 设置lazy为 false，这会立即创建存储库，而不是等到您需要它
-      lazy: false,
-      // 创建存储库
-      create: (_) => MemoryRepository(),
+    // 提供多个应用程序
+    return MultiProvider(
+      providers: [
+        // 使用ChangeNotifierProvider类型为 的MemoryRepository
+        ChangeNotifierProvider<MemoryRepository>(
+          // 设置lazy为 false，这会立即创建存储库，而不是等到您需要它
+          lazy: false,
+          // 创建存储库
+          create: (_) => MemoryRepository(),
+        ),
+        // 3
+        Provider(
+          // 4
+          create: (_) => MockService()..create(),
+          lazy: false,
+        ),
+      ],
       // MaterialApp作为子部件返回
       child: MaterialApp(
         title: 'Recipes',
