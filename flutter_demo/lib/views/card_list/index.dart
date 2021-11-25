@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../count/index.dart';
+import '../scrollview/index.dart';
 
 class CardList extends StatefulWidget {
   const CardList({Key? key}) : super(key: key);
@@ -13,18 +15,37 @@ class _CardListState extends State<CardList> {
     return Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
         child: GridView.count(
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: 3,
+          crossAxisSpacing: 10, // 交叉轴间距
+          mainAxisSpacing: 10, // 主轴间距
+          crossAxisCount: 3, // 横轴数量
           children: <Widget>[
             Card(
-              child: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-                  child: const Center(child: const Text('计数器'))),
+              child: InkWell(
+                  onTap: () {
+                    print("触摸开始：Card Clicked");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Count(title: '计数器')));
+                  },
+                  child: const Padding(
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                      child: Center(child: Text('计数器')))),
               color: Colors.teal[100],
             ),
             Card(
-              child: const Text('Heed not the rabble'),
+              child: InkWell(
+                  onTap: () {
+                    print("触摸开始：Card Clicked");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const ScrollList(title: 'Custom UI')));
+                  },
+                  child: const Padding(
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                      child: Center(child: Text('滚动视图')))),
               color: Colors.teal[200],
             ),
             Card(
@@ -45,55 +66,5 @@ class _CardListState extends State<CardList> {
             ),
           ],
         ));
-
-    // Container(
-    //     child: ListView(
-    //   children: const <Widget>[
-    //     Card(child: ListTile(title: Text('One-line ListTile'))),
-    //     Card(
-    //       child: ListTile(
-    //         leading: FlutterLogo(),
-    //         title: Text('One-line with leading widget'),
-    //       ),
-    //     ),
-    //     Card(
-    //       child: ListTile(
-    //         title: Text('One-line with trailing widget'),
-    //         trailing: Icon(Icons.more_vert),
-    //       ),
-    //     ),
-    //     Card(
-    //       child: ListTile(
-    //         leading: FlutterLogo(),
-    //         title: Text('One-line with both widgets'),
-    //         trailing: Icon(Icons.more_vert),
-    //       ),
-    //     ),
-    //     Card(
-    //       child: ListTile(
-    //         title: Text('One-line dense ListTile'),
-    //         dense: true,
-    //       ),
-    //     ),
-    //     Card(
-    //       child: ListTile(
-    //         leading: FlutterLogo(size: 56.0),
-    //         title: Text('Two-line ListTile'),
-    //         subtitle: Text('Here is a second line'),
-    //         trailing: Icon(Icons.more_vert),
-    //       ),
-    //     ),
-    //     Card(
-    //       child: ListTile(
-    //         leading: FlutterLogo(size: 72.0),
-    //         title: Text('Three-line ListTile'),
-    //         subtitle:
-    //             Text('A sufficiently long subtitle warrants three lines.'),
-    //         trailing: Icon(Icons.more_vert),
-    //         isThreeLine: true,
-    //       ),
-    //     ),
-    //   ],
-    // ));
   }
 }

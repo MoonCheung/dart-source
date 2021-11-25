@@ -28,7 +28,7 @@ class _CountState extends State<Count> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              '您已经多次按下按钮:',
             ),
             Text(
               '$_counter',
