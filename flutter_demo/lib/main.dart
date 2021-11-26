@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import './views/home.dart';
+import './router/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +16,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false, // 隐藏调试横幅
         initialRoute: "/", //名为"/"的路由作为应用的home(首页),
         //注册路由表
-        routes: {
-          "/": (context) => const Home(
-              title: 'Flutter Demo Home Page'), //注册首页路由,如添加此属性之后该去掉home属性
-        },
+        routes: CustomRoutes.routes,
         localizationsDelegates: const [
           // Material Components库提供了本地化的字符串和其他值
           GlobalMaterialLocalizations.delegate,

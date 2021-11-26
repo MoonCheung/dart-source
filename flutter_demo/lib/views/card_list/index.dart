@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../count/index.dart';
-import '../scrollview/index.dart';
 
 class CardList extends StatefulWidget {
   const CardList({Key? key}) : super(key: key);
@@ -12,6 +10,8 @@ class CardList extends StatefulWidget {
 class _CardListState extends State<CardList> {
   @override
   Widget build(BuildContext context) {
+    final routePath = ModalRoute.of(context)?.settings.arguments;
+    print('示演页面->路由信息:${routePath}');
     return Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
         child: GridView.count(
@@ -23,10 +23,10 @@ class _CardListState extends State<CardList> {
               child: InkWell(
                   onTap: () {
                     print("触摸开始：Card Clicked");
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Count(title: '计数器')));
+                    // 或者路由导航静态方法也可以
+                    Navigator.of(context).pushNamed('/count', arguments: {
+                      'title': 'Card 回来了！',
+                    });
                   },
                   child: const Padding(
                       padding: EdgeInsets.only(left: 10, right: 10, top: 10),
@@ -37,11 +37,7 @@ class _CardListState extends State<CardList> {
               child: InkWell(
                   onTap: () {
                     print("触摸开始：Card Clicked");
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const ScrollList(title: 'Custom UI')));
+                    Navigator.of(context).pushNamed('/scrolllist');
                   },
                   child: const Padding(
                       padding: EdgeInsets.only(left: 10, right: 10, top: 10),

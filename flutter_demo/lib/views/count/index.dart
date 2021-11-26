@@ -17,8 +17,16 @@ class _CountState extends State<Count> {
     });
   }
 
+  void dispose() {
+    super.dispose();
+    print('该count页面销毁');
+  }
+
   @override
   Widget build(BuildContext context) {
+    // 获取路由参数
+    final routePath = ModalRoute.of(context)?.settings.arguments;
+    print('路由信息:${routePath}');
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
