@@ -36,7 +36,6 @@ class _CardListState extends State<CardList> {
             Card(
               child: InkWell(
                   onTap: () {
-                    print("触摸开始：Card Clicked");
                     Navigator.of(context).pushNamed('/scrolllist');
                   },
                   child: const Padding(
@@ -45,7 +44,13 @@ class _CardListState extends State<CardList> {
               color: Colors.teal[200],
             ),
             Card(
-              child: const Text('Sound of screams but the'),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/groupOrdraw');
+                  },
+                  child: const Padding(
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                      child: Center(child: Text('组合/自绘')))),
               color: Colors.teal[300],
             ),
             Card(

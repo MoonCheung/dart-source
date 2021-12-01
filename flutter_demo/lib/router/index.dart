@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import '../views/home.dart';
 import '../views/count/index.dart';
 import '../views/scrollview/index.dart';
+import '../views/gourpordraw/index.dart';
 
+// NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
 // Navigator.pushNamed(context, '路由路径', arguments: {});
 // 或者路由导航静态方法也可以
@@ -22,5 +24,7 @@ class CustomRoutes {
         ),
     '/count': (BuildContext context) => const Count(title: '计数器'),
     '/scrolllist': (BuildContext context) => const ScrollList(title: '滚动视图'),
+    '/groupOrdraw': (BuildContext context) =>
+        const GourpOrDraw(title: '组合Or自绘'),
   };
 }
