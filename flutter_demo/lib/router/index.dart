@@ -3,6 +3,8 @@ import '../views/home.dart';
 import '../views/count/index.dart';
 import '../views/scrollview/index.dart';
 import '../views/gourpordraw/index.dart';
+import '../views/gesture/index.dart';
+import '../views/data_transfer/index.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -26,5 +28,7 @@ class CustomRoutes {
     '/scrolllist': (BuildContext context) => const ScrollList(title: '滚动视图'),
     '/groupOrdraw': (BuildContext context) =>
         const GourpOrDraw(title: '组合Or自绘'),
+    '/gesture': (BuildContext context) => const GestureView(title: '手势事件'),
+    '/data': (BuildContext context) => const DataTransfers(title: '数据通信'),
   };
 }

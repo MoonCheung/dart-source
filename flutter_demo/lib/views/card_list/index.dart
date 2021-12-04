@@ -11,6 +11,7 @@ class _CardListState extends State<CardList> {
   @override
   Widget build(BuildContext context) {
     final routePath = ModalRoute.of(context)?.settings.arguments;
+    const padding = EdgeInsets.only(left: 10, right: 10, top: 10);
     print('示演页面->路由信息:${routePath}');
     return Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
@@ -29,8 +30,7 @@ class _CardListState extends State<CardList> {
                     });
                   },
                   child: const Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-                      child: Center(child: Text('计数器')))),
+                      padding: padding, child: Center(child: Text('计数器')))),
               color: Colors.teal[100],
             ),
             Card(
@@ -39,8 +39,7 @@ class _CardListState extends State<CardList> {
                     Navigator.of(context).pushNamed('/scrolllist');
                   },
                   child: const Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-                      child: Center(child: Text('滚动视图')))),
+                      padding: padding, child: Center(child: Text('滚动视图')))),
               color: Colors.teal[200],
             ),
             Card(
@@ -49,16 +48,25 @@ class _CardListState extends State<CardList> {
                     Navigator.of(context).pushNamed('/groupOrdraw');
                   },
                   child: const Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-                      child: Center(child: Text('组合/自绘')))),
+                      padding: padding, child: Center(child: Text('组合/自绘')))),
               color: Colors.teal[300],
             ),
             Card(
-              child: const Text('Who scream'),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/gesture');
+                  },
+                  child: const Padding(
+                      padding: padding, child: Center(child: Text('手势事件')))),
               color: Colors.teal[400],
             ),
             Card(
-              child: const Text('Revolution is coming...'),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/data');
+                  },
+                  child: const Padding(
+                      padding: padding, child: Center(child: Text('数据通信')))),
               color: Colors.teal[500],
             ),
             Card(
