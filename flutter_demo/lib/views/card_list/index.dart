@@ -70,8 +70,14 @@ class _CardListState extends State<CardList> {
               color: Colors.teal[500],
             ),
             Card(
-              child: const Text('Revolution, they...'),
-              color: Colors.teal[600],
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/animation');
+                  },
+                  child: const Padding(
+                      padding: padding,
+                      child: Center(child: Text('Flutter 动画')))),
+              color: Colors.teal[500],
             ),
           ],
         ));

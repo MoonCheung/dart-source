@@ -5,6 +5,7 @@ import '../views/scrollview/index.dart';
 import '../views/gourpordraw/index.dart';
 import '../views/gesture/index.dart';
 import '../views/data_transfer/index.dart';
+import '../views/animation/index.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -30,5 +31,7 @@ class CustomRoutes {
         const GourpOrDraw(title: '组合Or自绘'),
     '/gesture': (BuildContext context) => const GestureView(title: '手势事件'),
     '/data': (BuildContext context) => const DataTransfers(title: '数据通信'),
+    '/animation': (BuildContext context) =>
+        const AnimatioWidget(title: 'Futter 动画'),
   };
 }
