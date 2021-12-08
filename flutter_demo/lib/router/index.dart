@@ -6,6 +6,8 @@ import '../views/gourpordraw/index.dart';
 import '../views/gesture/index.dart';
 import '../views/data_transfer/index.dart';
 import '../views/animation/index.dart';
+import '../views/async/index.dart';
+import '../views/network/index.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -33,5 +35,7 @@ class CustomRoutes {
     '/data': (BuildContext context) => const DataTransfers(title: '数据通信'),
     '/animation': (BuildContext context) =>
         const AnimatioWidget(title: 'Futter 动画'),
+    '/async': (BuildContext context) => const AsyncAwait(title: 'Async'),
+    '/network': (BuildContext context) => const NetworkState(title: 'Network'),
   };
 }

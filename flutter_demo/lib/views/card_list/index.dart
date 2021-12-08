@@ -79,6 +79,25 @@ class _CardListState extends State<CardList> {
                       child: Center(child: Text('Flutter 动画')))),
               color: Colors.teal[500],
             ),
+            Card(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/async');
+                  },
+                  child: const Padding(
+                      padding: padding,
+                      child: Center(child: Text('Flutter async')))),
+              color: Colors.teal[500],
+            ),
+            Card(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/network');
+                  },
+                  child: const Padding(
+                      padding: padding, child: Center(child: Text('Network')))),
+              color: Colors.teal[500],
+            ),
           ],
         ));
   }

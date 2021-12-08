@@ -20,7 +20,7 @@ class PageAnimate extends StatelessWidget {
       ),
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => HeroPage()));
+            .push(MaterialPageRoute(builder: (_) => const HeroPage()));
       },
     ));
   }
@@ -32,7 +32,7 @@ class HeroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Hero 放大器')),
+        appBar: AppBar(title: const Text('Hero 放大器')),
         body: Hero(
             tag: 'hero',
             child: Center(
