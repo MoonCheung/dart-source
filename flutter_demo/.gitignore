@@ -47,3 +47,5 @@ app.*.map.json
 
 # ignore files
 pubspec.lock
+/ios/Podfile
+/macos/Podfile
