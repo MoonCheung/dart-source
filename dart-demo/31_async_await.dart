@@ -16,7 +16,8 @@ Future<String> loadFirstName(String name) async {
   await Future.delayed(delay);
   return name + ' moon!!!';
 }
-void main() async{
+
+void main() async {
   // 'await' 将暂停函数的执行，直到
   // future 完成:
   var gregsLastName = await loadLastName('moon');

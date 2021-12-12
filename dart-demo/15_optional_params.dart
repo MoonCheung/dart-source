@@ -12,7 +12,6 @@ String whisper(String str, {bool mysteriously: false}) {
   return result;
 }
 
-
 void main() {
   print(yell('Hello, World'));
   print(yell('Hello, World', true));
