@@ -98,6 +98,15 @@ class _CardListState extends State<CardList> {
                       padding: padding, child: Center(child: Text('Network')))),
               color: Colors.teal[500],
             ),
+            Card(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/bottom_bar');
+                  },
+                  child: const Padding(
+                      padding: padding, child: Center(child: Text('动画底部导航')))),
+              color: Colors.teal[500],
+            ),
           ],
         ));
   }
