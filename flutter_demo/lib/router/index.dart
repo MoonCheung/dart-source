@@ -9,6 +9,8 @@ import '../views/animation/index.dart';
 import '../views/async/index.dart';
 import '../views/network/index.dart';
 import '../views/bottom_bar/index.dart';
+import '../views/bottom_bar_1/index.dart';
+import '../views/nested_router/index.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -39,5 +41,8 @@ class CustomRoutes {
     '/async': (BuildContext context) => const AsyncAwait(title: 'Async'),
     '/network': (BuildContext context) => const NetworkState(title: 'Network'),
     '/bottom_bar': (BuildContext context) => const BottomBar(title: '动画底部导航'),
+    '/bottom_bar_1': (BuildContext context) =>
+        const BottomBarPage(title: '动画底部导航（行为分析）'),
+    '/routes': (BuildContext context) => NestedPage(title: '嵌套路由'),
   };
 }
