@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class WrapperWidget extends StatefulWidget {
   const WrapperWidget({Key? key, required this.onFun, required this.child})
       : super(key: key);
+  // 提供调用有状态的函数方法
   final Function onFun;
+  // 子小部件
   final Widget child;
 
   @override
