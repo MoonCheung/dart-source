@@ -3,16 +3,19 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import './router/index.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  // 全局导航key
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
+        // navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false, // 隐藏调试横幅
         initialRoute: "/", //名为"/"的路由作为应用的home(首页),
         //注册路由表

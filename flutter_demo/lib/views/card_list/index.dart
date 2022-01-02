@@ -107,17 +107,16 @@ class _CardListState extends State<CardList> {
                       padding: padding, child: Center(child: Text('动画底部导航')))),
               color: Colors.teal[500],
             ),
-            // TODO: 动画底部导航行为相关逻辑有些问题暂时不适用，因为多了一个MaterialApp小部件
-            // Card(
-            //   child: InkWell(
-            //       onTap: () {
-            //         Navigator.of(context).pushNamed('/bottom_bar_1');
-            //       },
-            //       child: const Padding(
-            //           padding: padding,
-            //           child: Center(child: Text('动画底部导航（行为分析）')))),
-            //   color: Colors.teal[500],
-            // ),
+            Card(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/bottom_bar_1');
+                  },
+                  child: const Padding(
+                      padding: padding,
+                      child: Center(child: Text('底部导航\n（行为分析）')))),
+              color: Colors.teal[500],
+            ),
             Card(
               child: InkWell(
                   onTap: () {
