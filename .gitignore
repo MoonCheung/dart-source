@@ -1,0 +1,12 @@
+# ignore project folder
+/flutter_app
+/flutter_chopper
+/flutter_json
+/flutter_route
+/flutter_routes
+/flutter_scroll
+/flutter_shared_preferences
+/flutter_state
+/flutter_streams
+/flutter_web_route
+/flutter_widget
