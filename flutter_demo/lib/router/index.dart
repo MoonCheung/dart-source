@@ -11,7 +11,8 @@ import '../views/network/index.dart';
 import '../views/bottom_bar/index.dart';
 import '../views/bottom_bar_1/index.dart';
 import '../views/nested_router/index.dart';
-import '../views/nested_router/pages/pages.dart';
+import '../views/i18ns/index.dart';
+import '../views/json_article/index.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -45,5 +46,7 @@ class CustomRoutes {
     '/bottom_bar_1': (BuildContext context) =>
         const BottomBarPage(title: '底部导航（行为分析）'),
     '/routes': (BuildContext context) => NestedPage(title: '嵌套路由'),
+    '/i18ns': (BuildContext context) => const i18nsPage(title: '多国语系'),
+    '/jsons': (BuildContext context) => const JsonAtricle(title: 'Json 物件教学'),
   };
 }

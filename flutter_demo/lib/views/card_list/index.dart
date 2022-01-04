@@ -117,13 +117,33 @@ class _CardListState extends State<CardList> {
                       child: Center(child: Text('底部导航\n（行为分析）')))),
               color: Colors.teal[500],
             ),
+            // Card(
+            //   child: InkWell(
+            //       onTap: () {
+            //         Navigator.of(context).pushNamed('/routes');
+            //       },
+            //       child: const Padding(
+            //           padding: padding, child: Center(child: Text('嵌套路由')))),
+            //   color: Colors.teal[500],
+            // ),
             Card(
               child: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed('/routes');
+                    Navigator.of(context).pushNamed('/i18ns');
                   },
                   child: const Padding(
-                      padding: padding, child: Center(child: Text('嵌套路由')))),
+                      padding: padding,
+                      child: Center(child: Text('Flutter 多国语系')))),
+              color: Colors.teal[500],
+            ),
+            Card(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/jsons');
+                  },
+                  child: const Padding(
+                      padding: padding,
+                      child: Center(child: Text('Flutter Api、Json物件教学')))),
               color: Colors.teal[500],
             ),
           ],
