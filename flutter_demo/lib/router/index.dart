@@ -13,6 +13,7 @@ import '../views/bottom_bar_1/index.dart';
 import '../views/nested_router/index.dart';
 import '../views/i18ns/index.dart';
 import '../views/json_article/index.dart';
+import '../views/provider/index.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -48,5 +49,7 @@ class CustomRoutes {
     '/routes': (BuildContext context) => NestedPage(title: '嵌套路由'),
     '/i18ns': (BuildContext context) => const i18nsPage(title: '多国语系'),
     '/jsons': (BuildContext context) => const JsonAtricle(title: 'Json 物件教学'),
+    '/provider': (BuildContext context) =>
+        const ProviderPage(title: 'Flutter Provider'),
   };
 }

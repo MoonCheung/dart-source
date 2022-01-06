@@ -146,6 +146,17 @@ class _CardListState extends State<CardList> {
                       child: Center(child: Text('Flutter Api、Json物件教学')))),
               color: Colors.teal[500],
             ),
+            Card(
+              child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/provider');
+                  },
+                  child: const Padding(
+                      padding: padding,
+                      child: Center(
+                          child: Text('Flutter Provider（手动添加Provider类）')))),
+              color: Colors.teal[500],
+            ),
           ],
         ));
   }
