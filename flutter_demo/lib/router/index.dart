@@ -1,19 +1,21 @@
-import 'package:flutter/material.dart';
-import '../views/home.dart';
-import '../views/count/index.dart';
-import '../views/scrollview/index.dart';
-import '../views/gourpordraw/index.dart';
-import '../views/gesture/index.dart';
-import '../views/data_transfer/index.dart';
-import '../views/animation/index.dart';
-import '../views/async/index.dart';
-import '../views/network/index.dart';
-import '../views/bottom_bar/index.dart';
-import '../views/bottom_bar_1/index.dart';
-import '../views/nested_router/index.dart';
-import '../views/i18ns/index.dart';
-import '../views/json_article/index.dart';
-import '../views/provider/index.dart';
+import 'package:flutter_demo/views/home.dart';
+import 'package:flutter_demo/views/animation/index.dart';
+import 'package:flutter_demo/views/async/index.dart';
+import 'package:flutter_demo/views/bottom_bar/index.dart';
+import 'package:flutter_demo/views/bottom_bar_1/index.dart';
+import 'package:flutter_demo/views/count/index.dart';
+import 'package:flutter_demo/views/data_transfer/index.dart';
+import 'package:flutter_demo/views/gesture/index.dart';
+import 'package:flutter_demo/views/getx/index.dart';
+import 'package:flutter_demo/views/gourpordraw/index.dart';
+import 'package:flutter_demo/views/i18ns/index.dart';
+import 'package:flutter_demo/views/json_article/index.dart';
+import 'package:flutter_demo/views/nested_router/index.dart';
+import 'package:flutter_demo/views/network/index.dart';
+import 'package:flutter_demo/views/provider/index.dart';
+import 'package:flutter_demo/views/scrollview/index.dart';
+
+import 'package:get/get.dart';
 
 // NOTE：路由配置API的用法
 // Navigator 声明式导航2.0
@@ -28,28 +30,75 @@ import '../views/provider/index.dart';
 // ModalRoute.of(context)?.settings.arguments;
 
 // 路由配置
-class CustomRoutes {
-  static final Map<String, Widget Function(BuildContext)> routes = {
-    "/": (BuildContext context) => const Home(
-          title: 'Flutter Demo Home Page',
-        ),
-    '/count': (BuildContext context) => const Count(title: '计数器'),
-    '/scrolllist': (BuildContext context) => const ScrollList(title: '滚动视图'),
-    '/groupOrdraw': (BuildContext context) =>
-        const GourpOrDraw(title: '组合Or自绘'),
-    '/gesture': (BuildContext context) => const GestureView(title: '手势事件'),
-    '/data': (BuildContext context) => const DataTransfers(title: '数据通信'),
-    '/animation': (BuildContext context) =>
-        const AnimatioWidget(title: 'Futter 动画'),
-    '/async': (BuildContext context) => const AsyncAwait(title: 'Async'),
-    '/network': (BuildContext context) => const NetworkState(title: 'Network'),
-    '/bottom_bar': (BuildContext context) => const BottomBar(title: '动画底部导航'),
-    '/bottom_bar_1': (BuildContext context) =>
-        const BottomBarPage(title: '底部导航（行为分析）'),
-    '/routes': (BuildContext context) => NestedPage(title: '嵌套路由'),
-    '/i18ns': (BuildContext context) => const i18nsPage(title: '多国语系'),
-    '/jsons': (BuildContext context) => const JsonAtricle(title: 'Json 物件教学'),
-    '/provider': (BuildContext context) =>
-        const ProviderPage(title: 'Flutter Provider'),
-  };
+class RouteConfig {
+  // 主页面
+  static const String main = '/';
+  // 计数器
+  static const String count = '/count';
+  // 滚动视图
+  static const String scrolllist = '/scrolllist';
+  // 组合Or自绘
+  static const String groupOrdraw = '/groupOrdraw';
+  // 手势事件
+  static const String gesture = '/gesture';
+  // 数据通信
+  static const String data = '/data';
+  // flutter 动画
+  static const String animations = '/animation';
+  // async
+  static const String asyncs = '/async';
+  // Network
+  static const String network = '/network';
+  // 底部导航栏
+  static const String bottomBar = '/bottom_bar';
+  // 底部导航栏
+  static const String bottomBar1 = '/bottom_bar_1';
+  // 嵌套路由
+  static const String nestedRoute = '/routes';
+  // i18n 多国语系
+  static const String i18ns = '/i18ns';
+  // json 物件教学
+  static const String jsons = '/jsons';
+  // provider 继承小部件
+  static const String provider = '/provider';
+  // getx
+  static const String getx = '/getx';
+
+  // 别名映射路由页面
+  static final List<GetPage> getPage = [
+    GetPage(
+        name: main, page: () => const Home(title: 'Flutter Demo Home Page')),
+    GetPage(name: count, page: () => const Count(title: '计数器')),
+    GetPage(name: scrolllist, page: () => const ScrollList(title: '滚动视图')),
+    GetPage(name: groupOrdraw, page: () => const GourpOrDraw(title: '组合Or自绘')),
+    GetPage(name: gesture, page: () => const GestureView(title: '手势事件')),
+    GetPage(name: data, page: () => const DataTransfers(title: '数据通信')),
+    GetPage(
+        name: animations, page: () => const AnimatioWidget(title: 'Futter 动画')),
+    GetPage(name: asyncs, page: () => const AsyncAwait(title: 'Async')),
+    GetPage(name: network, page: () => const NetworkState(title: 'Network')),
+    GetPage(name: bottomBar, page: () => const BottomBar(title: '动画底部导航')),
+    GetPage(
+        name: bottomBar1, page: () => const BottomBarPage(title: '底部导航（行为分析）')),
+    GetPage(
+      name: nestedRoute,
+      page: () => NestedPage(title: '嵌套路由'),
+    ),
+    GetPage(
+      name: i18ns,
+      page: () => const i18nsPage(title: '多国语系'),
+    ),
+    GetPage(
+      name: jsons,
+      page: () => const JsonAtricle(title: 'Json 物件教学'),
+    ),
+    GetPage(
+      name: provider,
+      page: () => const ProviderPage(title: 'Flutter Provider'),
+    ),
+    GetPage(
+      name: getx,
+      page: () => const GetxPages(title: 'Flutter Getx'),
+    ),
+  ];
 }

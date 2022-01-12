@@ -50,6 +50,8 @@ dependencies:
   injectable: ^1.5.0
   # 用于简单服务定位器
   get_it: ^7.2.0
+  # get 高性能状态管理、智能依赖注入和快速实用的路由管理
+  get: ^4.6.1
 
 dev_dependencies:
   flutter_test:
