@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart'; // getx 状态管理
 import 'package:provider/provider.dart'; // 继承小部件 很简单
-import 'package:flutter_demo/router/index.dart';
+import 'package:flutter_demo/router/app_page.dart';
 
 import '../views/provider/model/post_provider.dart';
 
@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false, // 隐藏调试横幅
-        initialRoute: RouteConfig.main,
+        initialRoute: RouteName.main,
         getPages: RouteConfig.getPage,
         navigatorObservers: [GetObserver()],
         localizationsDelegates: const [
