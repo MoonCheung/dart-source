@@ -88,6 +88,14 @@ class RouteConfig {
             name: RouteName.getxcountsimple,
             page: () => GetxCountPage(),
           ),
+          GetPage(
+            name: RouteName.getxcountsrx,
+            page: () => GetxCountReactivePage(),
+          ),
+          GetPage(
+            name: RouteName.getxcountadvance,
+            page: () => GetxCountAdvancePage(),
+          ),
         ]),
   ];
 }

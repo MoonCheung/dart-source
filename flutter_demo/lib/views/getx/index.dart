@@ -5,9 +5,20 @@ class GetxPages extends StatelessWidget {
   GetxPages({Key? key, required this.title}) : super(key: key);
   final String title;
 
-  final List<String> entries = <String>['计数器-简单式', 'B', 'C', 'D', 'E', 'F'];
+  final List<String> entries = <String>[
+    '计数器-简单式',
+    '计数器-响应式',
+    '计数器-进阶版',
+    'D',
+    'E',
+    'F'
+  ];
   final List<int> colorCodes = <int>[100, 200, 300, 400, 500, 600];
-  final List<String> pathList = <String>['/getx/count_simple'];
+  final List<String> pathList = <String>[
+    '/getx/count_simple',
+    '/getx/count_rx',
+    '/getx/count_advanced',
+  ];
 
   @override
   Widget build(BuildContext context) {

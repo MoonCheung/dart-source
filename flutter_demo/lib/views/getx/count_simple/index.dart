@@ -21,7 +21,7 @@ class GetxCountPage extends StatelessWidget {
         }),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => logic.increase(),
+        onPressed: () => logic.increment(),
         child: const Icon(Icons.add),
       ),
     );
