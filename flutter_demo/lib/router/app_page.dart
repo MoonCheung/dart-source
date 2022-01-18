@@ -96,6 +96,14 @@ class RouteConfig {
             name: RouteName.getxcountadvance,
             page: () => GetxCountAdvancePage(),
           ),
+          GetPage(
+              name: RouteName.getxcountbinding,
+              page: () => GetxCountBindingPage(),
+              // NOTE：在某个class扩展bindings类之后, 使用GetCounterBinding 实例类
+              binding: GetCounterBinding()),
+          // NOTE：不再扩展bindings类，可以使用下面BindingsBuilder()方法
+          // binding: BindingsBuilder(
+          //     () => Get.lazyPut(() => CounterBindingController())))
         ]),
   ];
 }
