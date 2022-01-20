@@ -104,6 +104,14 @@ class RouteConfig {
           // NOTE：不再扩展bindings类，可以使用下面BindingsBuilder()方法
           // binding: BindingsBuilder(
           //     () => Get.lazyPut(() => CounterBindingController())))
+          GetPage(
+            name: RouteName.getxacrossone,
+            page: () => AcrossOnePage(title: '跨页面:One'),
+          ),
+          GetPage(
+            name: RouteName.getxacrosstwo,
+            page: () => AcrossTwoPage(title: '跨页面:Two'),
+          ),
         ]),
   ];
 }

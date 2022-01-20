@@ -10,6 +10,7 @@ class GetxPages extends StatelessWidget {
     '计数器-响应式',
     '计数器-进阶版',
     '计数器-binding使用',
+    '简单跨页面交互',
   ];
   final List<int> colorCodes = <int>[100, 200, 300, 400, 500, 600];
   final List<String> pathList = <String>[
@@ -17,6 +18,7 @@ class GetxPages extends StatelessWidget {
     '/getx/count_rx',
     '/getx/count_advanced',
     '/getx/count_binding',
+    '/getx/count_across_one',
   ];
 
   @override

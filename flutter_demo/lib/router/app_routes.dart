@@ -41,4 +41,8 @@ abstract class RouteName {
   static const String getxcountadvance = '/count_advanced';
   // getx嵌套路由：/getx/count_binding
   static const String getxcountbinding = '/count_binding';
+  // getx嵌套路由：/getx/count_across_one
+  static const String getxacrossone = '/count_across_one';
+  // getx嵌套路由：/getx/count_across_two
+  static const String getxacrosstwo = '/count_across_two';
 }
