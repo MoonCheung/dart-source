@@ -7,7 +7,8 @@ class GetOneLogic extends GetxController {
 
   // 跳转第二页面
   void toTwoPage() {
-    Get.toNamed(RouteName.getxacrosstwo, arguments: {'msg': '我是上个页面传递过来的数据'});
+    Get.toNamed('/getx/${RouteName.getxacrosstwo}',
+        arguments: {'msg': '我是上个页面传递过来的数据'});
   }
 
   // 跳转到跨页面回调该下面方法
