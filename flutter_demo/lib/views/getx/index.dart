@@ -32,7 +32,21 @@ class GetxPages extends StatelessWidget {
             return InkWell(
                 onTap: () {
                   debugPrint('watch get path:${pathList[index]}');
-                  Get.toNamed(pathList[index]);
+                  if (index == 3) {
+                    Get.defaultDialog(
+                        title: "提示",
+                        content: const Text('想进入计数器binding使用吗?，否则不想进去，请点击取消'),
+                        textConfirm: '确定',
+                        onConfirm: () {
+                          Get.toNamed(pathList[index]);
+                        },
+                        textCancel: '取消',
+                        onCancel: () {
+                          debugPrint('这是取消按钮');
+                        });
+                  } else {
+                    Get.toNamed(pathList[index]);
+                  }
                 },
                 child: Container(
                   height: 120,

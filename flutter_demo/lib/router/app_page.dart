@@ -14,6 +14,7 @@ import 'package:flutter_demo/views/network/index.dart';
 import 'package:flutter_demo/views/provider/index.dart';
 import 'package:flutter_demo/views/scrollview/index.dart';
 import 'package:flutter_demo/views/getx/router.dart';
+import 'middleware/auth_middleware.dart';
 
 import 'package:get/get.dart';
 
@@ -97,10 +98,13 @@ class RouteConfig {
             page: () => GetxCountAdvancePage(),
           ),
           GetPage(
-              name: RouteName.getxcountbinding,
-              page: () => GetxCountBindingPage(),
-              // NOTE：在某个class扩展bindings类之后, 使用GetCounterBinding 实例类
-              binding: GetCounterBinding()),
+            name: RouteName.getxcountbinding,
+            page: () => GetxCountBindingPage(),
+            // NOTE：在某个class扩展bindings类之后, 使用GetCounterBinding 实例类
+            binding: GetCounterBinding(),
+            middlewares: [AuthMiddleware()],
+          ),
+
           // NOTE：不再扩展bindings类，可以使用下面BindingsBuilder()方法
           // binding: BindingsBuilder(
           //     () => Get.lazyPut(() => CounterBindingController())))
