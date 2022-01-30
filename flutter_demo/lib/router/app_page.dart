@@ -11,7 +11,7 @@ import 'package:flutter_demo/views/i18ns/index.dart';
 import 'package:flutter_demo/views/json_article/index.dart';
 import 'package:flutter_demo/views/nested_router/index.dart';
 import 'package:flutter_demo/views/network/index.dart';
-import 'package:flutter_demo/views/provider/index.dart';
+import 'package:flutter_demo/views/provider/router.dart';
 import 'package:flutter_demo/views/scrollview/index.dart';
 import 'package:flutter_demo/views/getx/router.dart';
 import 'middleware/auth_middleware.dart';
@@ -77,9 +77,12 @@ class RouteConfig {
       page: () => const JsonAtricle(title: 'Json 物件教学'),
     ),
     GetPage(
-      name: RouteName.provider,
-      page: () => const ProviderPage(title: 'Flutter Provider'),
-    ),
+        name: RouteName.provider,
+        page: () => ProviderPage(title: 'Flutter Provider'),
+        children: [
+          GetPage(
+              name: RouteName.providerlist, page: () => const ProviderList())
+        ]),
 
     // getx 状态管理页面
     GetPage(name: RouteName.getx, page: () => GetxPages(title: 'Flutter Getx'),

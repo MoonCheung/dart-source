@@ -153,8 +153,7 @@ class _CardListState extends State<CardList> {
                   },
                   child: const Padding(
                       padding: padding,
-                      child: Center(
-                          child: Text('Flutter Provider（手动添加Provider类）')))),
+                      child: Center(child: Text('Flutter Provider 状态管理')))),
               color: Colors.teal[500],
             ),
             Card(

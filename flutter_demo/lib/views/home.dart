@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'card_list/index.dart';
-import 'me/index.dart';
+import 'package:flutter_demo/views/card_list/index.dart';
+import 'package:flutter_demo/views/me/index.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required this.title}) : super(key: key);

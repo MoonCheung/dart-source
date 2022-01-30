@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './post_model.dart';
-import './post_repository.dart';
+import 'package:flutter_demo/views/provider/provider_data/model/post_model.dart';
+import 'package:flutter_demo/views/provider/provider_data/model/post_repository.dart';
 
 // 元祖类型
 enum SortState { sortWithId, sortWithTitle, sortWithBody, sortWithUserId }

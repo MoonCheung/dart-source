@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer' as developer;
 import 'package:http/http.dart' as http;
 
-import '../model/post_model.dart';
+import 'package:flutter_demo/views/provider/provider_data/model/post_model.dart';
 
 class PostService {
   Future<List<PostModel>> fetchData() async {

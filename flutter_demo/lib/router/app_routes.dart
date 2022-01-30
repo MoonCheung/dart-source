@@ -29,9 +29,10 @@ abstract class RouteName {
   static const String i18ns = '/i18ns';
   // json 物件教学
   static const String jsons = '/jsons';
-  // provider 继承小部件
+  // provider 状态管理
   static const String provider = '/provider';
-  // getx
+  static const String providerlist = '/list';
+  // getx 状态管理
   static const String getx = '/getx';
   // getx嵌套路由：/getx/count_simple
   static const String getxcountsimple = '/count_simple';

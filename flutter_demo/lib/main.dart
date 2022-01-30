@@ -4,7 +4,7 @@ import 'package:get/get.dart'; // getx 状态管理
 import 'package:provider/provider.dart'; // 继承小部件 很简单
 import 'package:flutter_demo/router/app_page.dart';
 
-import '../views/provider/model/post_provider.dart';
+import 'package:flutter_demo/views/provider/provider_data/model/post_provider.dart';
 
 void main() {
   runApp(const MyApp());
