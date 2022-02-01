@@ -81,7 +81,8 @@ class RouteConfig {
         page: () => ProviderPage(title: 'Flutter Provider'),
         children: [
           GetPage(
-              name: RouteName.providerlist, page: () => const ProviderList())
+              name: RouteName.providerlist, page: () => const ProviderList()),
+          GetPage(name: RouteName.providercount, page: () => ProviderCounter())
         ]),
 
     // getx 状态管理页面

@@ -31,7 +31,10 @@ abstract class RouteName {
   static const String jsons = '/jsons';
   // provider 状态管理
   static const String provider = '/provider';
+  // provider嵌套路由：/provider/list
   static const String providerlist = '/list';
+  // provider嵌套路由：/provider/count
+  static const String providercount = '/count';
   // getx 状态管理
   static const String getx = '/getx';
   // getx嵌套路由：/getx/count_simple

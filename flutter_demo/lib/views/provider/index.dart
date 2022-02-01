@@ -5,9 +5,10 @@ class ProviderPage extends StatelessWidget {
   ProviderPage({Key? key, required this.title}) : super(key: key);
   final String title;
 
-  final List<String> entries = <String>['（手动添加Provider类）数据列表'];
+  final List<String> entries = <String>['Provider 计数器', '（手动添加Provider类）数据列表'];
   final List<int> colorCodes = <int>[100, 200, 300, 400, 500, 600];
   final List<String> pathList = <String>[
+    '/provider/count',
     '/provider/list',
   ];
 
