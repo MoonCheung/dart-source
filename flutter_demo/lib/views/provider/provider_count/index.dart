@@ -13,7 +13,7 @@ class ProviderCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Provider 计数器')),
+        appBar: AppBar(title: const Text('计数器(通过Controller调用方法)')),
         body: ProviderCounterWidget(controller: controller),
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -21,23 +21,22 @@ class ProviderCounter extends StatelessWidget {
             FloatingActionButton(
               heroTag: 'btn1',
               onPressed: () {
-                controller.value = '数值变化：${(++count).toString()}';
+                controller.value = ++count;
               },
               tooltip: 'Increment',
               child: const Icon(Icons.add),
             ),
-            // const SizedBox(height: 10),
-            // FloatingActionButton(
-            //   heroTag: 'btn2',
-            //   onPressed: () {
-            //     final number = int.parse(controller.value);
-            //     if (number > 0) {
-            //       controller.value = '数值变化：${(count--).toString()}';
-            //     }
-            //   },
-            //   tooltip: 'Decrement',
-            //   child: const Icon(Icons.remove),
-            // ),
+            const SizedBox(height: 10),
+            FloatingActionButton(
+              heroTag: 'btn2',
+              onPressed: () {
+                if (controller.value > 0) {
+                  controller.value = --count;
+                }
+              },
+              tooltip: 'Decrement',
+              child: const Icon(Icons.remove),
+            ),
           ],
         ));
   }

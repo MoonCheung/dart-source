@@ -28,7 +28,7 @@ class _ProviderCounterWidgetState extends State<ProviderCounterWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        widget.controller?.value ?? '初始值为空',
+        '${widget.controller!.value > 0 ? '数值上升' : widget.controller!.value < 0 ? '数值下降' : '初始值为空'}:${widget.controller?.value}',
         style: const TextStyle(fontSize: 30.0),
       ),
     );
