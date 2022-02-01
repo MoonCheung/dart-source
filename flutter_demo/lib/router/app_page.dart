@@ -82,7 +82,10 @@ class RouteConfig {
         children: [
           GetPage(
               name: RouteName.providerlist, page: () => const ProviderList()),
-          GetPage(name: RouteName.providercount, page: () => ProviderCounter())
+          GetPage(name: RouteName.providercount, page: () => ProviderCounter()),
+          GetPage(
+              name: RouteName.providercountsimple,
+              page: () => ProviderCounterSimple())
         ]),
 
     // getx 状态管理页面

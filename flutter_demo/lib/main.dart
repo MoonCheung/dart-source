@@ -5,6 +5,7 @@ import 'package:provider/provider.dart'; // 继承小部件 很简单
 import 'package:flutter_demo/router/app_page.dart';
 
 import 'package:flutter_demo/views/provider/provider_data/model/post_provider.dart';
+import 'package:flutter_demo/views/provider/count_simple/logic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +50,9 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(providers: [
       ChangeNotifierProvider<PostProvider>(
         create: (context) => PostProvider(),
+      ),
+      ChangeNotifierProvider<ChangeNotifierController>(
+        create: (context) => ChangeNotifierController(),
       ),
     ], child: child);
   }
