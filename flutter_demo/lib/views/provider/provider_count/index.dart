@@ -13,7 +13,7 @@ class ProviderCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('计数器(通过Controller调用方法)')),
+        appBar: AppBar(title: const Text('计数器-ChangeNotifier使用')),
         body: ProviderCounterWidget(controller: controller),
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
