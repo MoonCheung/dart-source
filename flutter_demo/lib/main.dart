@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart'; // getx 状态管理
-import 'package:provider/provider.dart'; // 继承小部件 很简单
+import 'package:provider/provider.dart'; // provider 状态管理 很简单
 import 'package:flutter_demo/router/app_page.dart';
 
 import 'package:flutter_demo/views/provider/provider_data/model/post_provider.dart';

@@ -7,12 +7,14 @@ class ProviderPage extends StatelessWidget {
 
   final List<String> entries = <String>[
     '计数器-简单版',
-    '计数器(通过Controller调用方法)',
+    '计数器-high版',
+    '计数器-ChangeNotifier使用',
     '（手动添加Provider类）数据列表'
   ];
   final List<int> colorCodes = <int>[100, 200, 300, 400, 500, 600];
   final List<String> pathList = <String>[
     '/provider/count_simple',
+    '/provider/count_high',
     '/provider/count',
     '/provider/list',
   ];

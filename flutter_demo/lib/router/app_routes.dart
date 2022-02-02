@@ -37,6 +37,8 @@ abstract class RouteName {
   static const String providercount = '/count';
   // provider嵌套路由：/provider/count_simple
   static const String providercountsimple = '/count_simple';
+  // provider嵌套路由：/provider/count_high
+  static const String providercounthigh = '/count_high';
   // getx 状态管理
   static const String getx = '/getx';
   // getx嵌套路由：/getx/count_simple

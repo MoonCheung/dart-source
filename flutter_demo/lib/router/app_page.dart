@@ -85,7 +85,10 @@ class RouteConfig {
           GetPage(name: RouteName.providercount, page: () => ProviderCounter()),
           GetPage(
               name: RouteName.providercountsimple,
-              page: () => ProviderCounterSimple())
+              page: () => ProviderCounterSimple()),
+          GetPage(
+              name: RouteName.providercounthigh,
+              page: () => ProviderCounterHigh())
         ]),
 
     // getx 状态管理页面
