@@ -24,17 +24,18 @@ class ProviderCounterHigh extends StatelessWidget {
           title: const Text('Provider 计数器-High版'),
         ),
         body: Center(
-            // Selector 将使用 Provider.of 获取一个值，然后将该值传递给 selector。然后，该选择器回调的任务是返回一个对象，该对象仅包含构建器完成所需的信息。
-            child: Selector<ProviderCounterProvider, int>(
-          //它获取一些 InheritedWidget 并将它们的内容映射到一个只有有限数量属性的新对象中。
-          selector: (context, provider) => state.count,
-          // 从子级和选择器的最后一个结果构建小部件树的函数。
-          builder: (context, value, child) {
-            return Text(
-                '${state.count > 0 ? '数值上升' : state.count < 0 ? '数值下降' : '初始值为空'}:${state.count}',
-                style: const TextStyle(fontSize: 30.0));
-          },
-        )),
+            child: EasyBuilder<ProviderCounterProvider>(
+                // Selector 将使用 Provider.of 获取一个值，然后将该值传递给 selector。然后，该选择器回调的任务是返回一个对象，该对象仅包含构建器完成所需的信息。
+                () => Selector<ProviderCounterProvider, int>(
+                      //它获取一些 InheritedWidget 并将它们的内容映射到一个只有有限数量属性的新对象中。
+                      selector: (context, provider) => state.count,
+                      // 从子级和选择器的最后一个结果构建小部件树的函数。
+                      builder: (context, value, child) {
+                        return Text(
+                            '${value > 0 ? '数值上升' : value < 0 ? '数值下降' : '初始值为空'}:$value',
+                            style: const TextStyle(fontSize: 30.0));
+                      },
+                    ))),
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -53,5 +54,20 @@ class ProviderCounterHigh extends StatelessWidget {
             ),
           ],
         ));
+  }
+}
+
+///自定义Builder
+class EasyBuilder<T> extends StatelessWidget {
+  const EasyBuilder(
+    this.builder, {
+    Key? key,
+  }) : super(key: key);
+
+  final Widget Function() builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return builder();
   }
 }
