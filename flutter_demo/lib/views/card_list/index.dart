@@ -133,7 +133,7 @@ class _CardListState extends State<CardList> {
                   },
                   child: const Padding(
                       padding: padding,
-                      child: Center(child: Text('Flutter 多国语系')))),
+                      child: Center(child: Text('Flutter i18n多国语系')))),
               color: Colors.teal[500],
             ),
             Card(

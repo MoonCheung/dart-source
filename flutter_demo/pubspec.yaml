@@ -52,6 +52,8 @@ dependencies:
   get_it: ^7.2.0
   # get 高性能状态管理、智能依赖注入和快速实用的路由管理
   get: ^4.6.1
+  # i18n 翻译国际化
+  easy_localization: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +82,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/lang/
     - assets/icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

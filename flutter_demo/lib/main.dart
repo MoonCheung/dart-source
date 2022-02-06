@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart'; // getx 状态管理
 import 'package:provider/provider.dart'; // provider 状态管理 很简单
+import 'package:easy_localization/easy_localization.dart'; // i18n 国际化
 import 'package:flutter_demo/router/app_page.dart';
 
 import 'package:flutter_demo/views/provider/provider_data/model/post_provider.dart';
 import 'package:flutter_demo/views/provider/count_simple/logic.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('zh'), Locale('en')],
+      path: 'assets/lang', // <-- 更改翻译文件的路径
+      fallbackLocale: const Locale('zh'),
+      startLocale: const Locale('zh'),
+      child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -22,20 +29,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+        // key: ValueKey('${context.locale}'),
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false, // 隐藏调试横幅
         initialRoute: RouteName.main,
         getPages: RouteConfig.getPage,
         navigatorObservers: [GetObserver()],
-        localizationsDelegates: const [
-          // Material Components库提供了本地化的字符串和其他值
-          GlobalMaterialLocalizations.delegate,
-          // 定义widget默认的文本方向，从左到右或从右到左。
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('zh', 'CH'), // 中文
-        ],
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         // 主题色配置
         theme: ThemeData(
           primarySwatch: Colors.blue,

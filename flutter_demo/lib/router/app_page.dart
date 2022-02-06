@@ -70,7 +70,7 @@ class RouteConfig {
     ),
     GetPage(
       name: RouteName.i18ns,
-      page: () => const i18nsPage(title: '多国语系'),
+      page: () => const i18nsPage(title: 'i18n多国语系'),
     ),
     GetPage(
       name: RouteName.jsons,
