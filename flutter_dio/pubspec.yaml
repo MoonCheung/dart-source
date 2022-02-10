@@ -38,6 +38,10 @@ dependencies:
   dio: ^4.0.4
   json_annotation: ^4.4.0
   shared_preferences: ^2.0.13
+  get: ^4.6.1
+  dio_cookie_manager: ^2.0.0
+  cookie_jar: ^3.0.1
+  dio_http2_adapter: ^2.0.0
 
 dev_dependencies:
   flutter_test:
