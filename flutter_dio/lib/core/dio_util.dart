@@ -18,7 +18,7 @@ class DioUtil {
   static const int RECEIVE_TIMEOUT = 10000;
 
   // 请求的URL前缀
-  static String BASE_URL = "http://localhost:8080";
+  static String BASE_URL = "https://jsonplaceholder.typicode.com";
 
   // 是否开启网络缓存,默认false
   static bool CACHE_ENABLE = false;
@@ -30,7 +30,7 @@ class DioUtil {
   static int MAX_CACHE_COUNT = 100;
 
   static DioUtil? _instance;
-  static late final Dio _dio = Dio();
+  static late Dio _dio = Dio();
   Dio get dio => _dio;
 
   DioUtil._internal() {
@@ -51,7 +51,7 @@ class DioUtil {
   /// cookie
   CookieJar cookieJar = CookieJar();
 
-  // 初始化方法
+  // 私有初始化方法
   _init() {
     // 初始化基本选项
     BaseOptions options = BaseOptions(
@@ -60,7 +60,7 @@ class DioUtil {
         receiveTimeout: RECEIVE_TIMEOUT);
 
     // 初始化dio方法
-    final Dio _dio = Dio(options);
+    _dio = Dio(options);
 
     // 添加拦截器
     _dio.interceptors.add(DioInterceptors());
