@@ -1,18 +1,17 @@
-class Position{
+class Position {
   final int x;
   final int y;
   Position(this.x) : y = 0;
 }
 
-
-void main(){
+void main() {
   // final 变量是单赋值的
-  final a = 'hello';
+  String a = 'hello';
 
   try {
     // 运行时错误；已分配
     a = 'goodbay';
-  }catch(e){
+  } catch (e) {
     print('a error:${e}');
   }
 
@@ -20,7 +19,7 @@ void main(){
 
   try {
     pos.x = 100; // 运行时错误
-  } catch(e) {
+  } catch (e) {
     print('pos error:${e}');
   }
 }

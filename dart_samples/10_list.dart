@@ -13,7 +13,7 @@ void main() {
 
   // 也声明局部变量, 只能将整型数组赋值，其他类型会报错
   var list2 = <int>[];
-  list2.addAll([1,10,11,12]);
+  list2.addAll([1, 10, 11, 12]);
   print('list is int type: ${list2}');
 
   // 可以将不同类型推送list3的数组，<dynamic>[]是静态类型
@@ -22,14 +22,14 @@ void main() {
   print('list is dynamic type: ${list3}');
 
   // 在迭代期间修改可增长列表会导致 ConcurrentModificationErrors
-  var array = [1,10,53];
-  try{
-    for(var item in array){
-      if(item > 10){
+  var array = [1, 10, 53];
+  try {
+    for (var item in array) {
+      if (item > 10) {
         array.remove(item);
       }
-    }  
-  }catch(e){
+    }
+  } catch (e) {
     print('error: ${e}');
   }
 }

@@ -1,11 +1,11 @@
-void main(){
+void main() {
   // 省略new
   var medals = Set();
   medals.add("gold");
   medals.add("silver");
   medals.add("bronze");
 
-  // HashSets 使用相等运算符 (==) 来确定 
+  // HashSets 使用相等运算符 (==) 来确定
   // 如果它已经包含一个项目
   medals.add("gold");
 

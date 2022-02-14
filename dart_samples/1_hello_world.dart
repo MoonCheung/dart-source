@@ -1,5 +1,5 @@
 // print example
-void main(){
+void main() {
   // 用于打印
   print('hello dart');
 }

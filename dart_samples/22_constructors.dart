@@ -1,6 +1,6 @@
 import 'dart:math';
 
-class Position{
+class Position {
   late int x;
   late int y;
   // 一个简单的构造函数
@@ -20,7 +20,7 @@ class Position{
   String toString() => "[$x, $y]";
 }
 
-void main(){
+void main() {
   print(new Position(30, 40));
   print(new Position.atOrigin());
   print(new Position.fromMap({'x': 4, 'y': 100}));

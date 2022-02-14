@@ -14,7 +14,7 @@ class Position {
   }
 }
 
-void main(){
+void main() {
   var p = new Position(2, 3);
   print('x: ${p._x} y: ${p._y}');
   print('rad: ${p.rad}');

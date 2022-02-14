@@ -20,14 +20,14 @@ void main() {
 
   try {
     p.peel();
-  } on FoodSpoiledError catch(_) {
+  } on FoodSpoiledError catch (_) {
     print("nope nope nope");
   }
 
   // 任何非空物体都可以抛出:
   try {
-    throw("potato");
-  } catch(_) {
+    throw ("potato");
+  } catch (_) {
     print("caught a flying potato");
   }
 

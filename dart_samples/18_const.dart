@@ -5,7 +5,7 @@ const name = "greg";
 // 这个对象可在编译时声明常量
 const Rectangle bounds = const Rectangle(0, 0, 5, 5);
 
-void main(){
+void main() {
   print('name: ${name}');
   print('bounds: ${bounds}');
 }

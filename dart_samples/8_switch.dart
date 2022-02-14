@@ -1,7 +1,7 @@
 void main() {
-  //典型的开关语句 
+  //典型的开关语句
   var piece = 'knight';
-  switch(piece) {
+  switch (piece) {
     case 'bishop':
       print('diagonal');
       break;
@@ -14,7 +14,7 @@ void main() {
 
   // 只有空的情况下才能通过:
   piece = 'queen';
-  switch(piece) {
+  switch (piece) {
     case 'queen':
     case 'bishop':
       print('diagonal');

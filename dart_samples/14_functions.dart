@@ -9,8 +9,7 @@ The wren
 Earns his living
 Noiselessly.''';
 
-
-void main(){
+void main() {
   var poemLines = lines(poem);
   print('大写字母：${yell(poemLines.first)}');
 

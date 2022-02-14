@@ -10,16 +10,16 @@ Stream printNumbersDownAsync(int n) async* {
   }
 }
 
-Future loadMessageForNumber(int i) async{
+Future loadMessageForNumber(int i) async {
   await Future.delayed(delay);
-  if(i % 2 == 0){
+  if (i % 2 == 0) {
     return '偶数';
   }
   return '奇数';
 }
 
-void main() async{
-  await for(String msg in printNumbersDownAsync(7)){
+void main() async {
+  await for (String msg in printNumbersDownAsync(7)) {
     print(msg);
   }
 }

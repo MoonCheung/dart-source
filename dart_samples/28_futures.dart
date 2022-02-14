@@ -11,16 +11,14 @@ Future<String> get onReady {
   });
 }
 
-void main(){
-  // 将回调传递给 then() 将调用 
+void main() {
+  // 将回调传递给 then() 将调用
   // 未来完成时的回调
-  onReady.then((String status){
+  onReady.then((String status) {
     print(status);
   });
   // Future 可以链式：
-  onReady.then((print)).then((_) => {
-    print('done!!!')
-  });
+  onReady.then((print)).then((_) => {print('done!!!')});
 
   // Futures 可能会引发错误
   onReady.catchError(() {

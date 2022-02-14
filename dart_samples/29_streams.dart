@@ -1,5 +1,6 @@
 import 'dart:async';
-void main(){
+
+void main() {
   //创建单个订阅流
   Stream.fromIterable([1, 5, 7]).listen((i) {
     print('s1: $i');
@@ -11,7 +12,9 @@ void main(){
       .take(3)
       .listen((_) => print('s2: tick!'));
 
-  Stream.fromIterable([2, 4, 8]).map((n) => n * 2).listen((n) => print('s3: $n'));
+  Stream.fromIterable([2, 4, 8])
+      .map((n) => n * 2)
+      .listen((n) => print('s3: $n'));
 
   //多个消费者可以收听广播流。
   var sc = StreamController.broadcast();

@@ -18,7 +18,7 @@ class Square {
   int get area => width * height;
 }
 
-// 类可以混合使用"with" 
+// 类可以混合使用"with"
 class SquareView extends Square with Position {}
 
 void main() {

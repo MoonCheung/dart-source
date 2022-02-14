@@ -4,7 +4,7 @@ Iterable<int> evenNumbersDownFrom(int n) sync* {
   int k = n;
   while (k >= 0) {
     if (k % 2 == 0) {
-      // 'yield' 暂停功能 
+      // 'yield' 暂停功能
       yield k;
     }
     k--;
@@ -15,6 +15,6 @@ Iterable<int> evenNumbersDownFrom(int n) sync* {
   // moveNext() returns false to the caller
 }
 
-void main(){
+void main() {
   evenNumbersDownFrom(7).forEach(print);
 }
