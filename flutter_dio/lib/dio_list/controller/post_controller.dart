@@ -27,7 +27,8 @@ class PostController extends GetxController {
   void fetchApi() async {
     isLoading(true);
     await DioUtil()
-        .request('/posts', method: DioMethod.get, cancelToken: _cancelToken)
+        .request('https://jsonplaceholder.typicode.com/posts',
+            method: DioMethod.get, cancelToken: _cancelToken)
         .then((data) {
       // NOTE: 不需要decode解码数据，直接返回给postModel.fromJson()
       final res = List<PostModel>.from(data.map((e) => PostModel.fromJson(e)));

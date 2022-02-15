@@ -1,24 +1,35 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_dio/core/dio_util.dart';
 
 class DioTokenInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    debugPrint('REQUEST[${options.method}] => PATH: ${options.path}');
-    return super.onRequest(options, handler);
+    if (options.headers['refreshToken'] == null) {
+      DioUtil.getInstance()?.dio.lock();
+      Dio _tokenDio = Dio();
+      _tokenDio
+        ..get("http://localhost:8080/getRefreshToken").then((d) {
+          options.headers['refreshToken'] = d;
+          handler.next(options);
+        }).catchError((error, stackTrace) {
+          handler.reject(error, true);
+        }).whenComplete(() {
+          DioUtil.getInstance()?.dio.unlock();
+        }); // unlock the dio
+    } else {
+      options.headers['refreshToken'] = options.headers['refreshToken'];
+      handler.next(options);
+    }
   }
 
   @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    debugPrint(
-        'RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
+  void onResponse(Response response, ResponseInterceptorHandler handler) async {
+    // 响应前需要做刷新token的操作
     super.onResponse(response, handler);
   }
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    debugPrint(
-        'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
-    return super.onError(err, handler);
+    super.onError(err, handler);
   }
 }

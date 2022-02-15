@@ -8,6 +8,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'dio_method.dart';
 import 'dio_interceptors.dart';
+import 'dio_transformer.dart';
 import 'dio_token_interceptors.dart';
 import 'dio_cache_interceptors.dart';
 
@@ -19,6 +20,9 @@ class DioUtil {
 
   // 请求的URL前缀
   static String BASE_URL = "https://jsonplaceholder.typicode.com";
+
+  // 内容类型
+  static String CONTENT_TYPE = "application/json";
 
   // 是否开启网络缓存,默认false
   static bool CACHE_ENABLE = false;
@@ -56,6 +60,7 @@ class DioUtil {
     // 初始化基本选项
     BaseOptions options = BaseOptions(
         baseUrl: BASE_URL,
+        contentType: CONTENT_TYPE,
         connectTimeout: CONNECT_TIMEOUT,
         receiveTimeout: RECEIVE_TIMEOUT);
 
@@ -63,16 +68,19 @@ class DioUtil {
     _dio = Dio(options);
 
     // 添加拦截器
-    _dio.interceptors.add(DioInterceptors());
+    // _dio.interceptors.add(DioInterceptors());
+
+    // 添加转换器
+    // _dio.transformer = DioTransformer();
 
     // 添加cookie管理器
-    _dio.interceptors.add(CookieManager(cookieJar));
+    // _dio.interceptors.add(CookieManager(cookieJar));
 
     // 刷新token拦截器(lock/unlock)
-    _dio.interceptors.add(DioTokenInterceptors());
+    // _dio.interceptors.add(DioTokenInterceptors());
 
     // 添加缓存拦截器
-    _dio.interceptors.add(DioCacheInterceptors());
+    // _dio.interceptors.add(DioCacheInterceptors());
 
     // 添加以漂亮、易于阅读的格式记录网络调用
     _dio.interceptors.add(PrettyDioLogger(
